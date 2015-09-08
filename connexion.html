@@ -6,15 +6,7 @@
 	<title>Document</title>
 </head>
 <body>
-	<h2>Veuillez vous identifiez</h2>
-	<form class="container">
-	<h1>Se connecter</h1>
-	<img src="images/avatar.jpg">
-	<input type="text" name="mail" id="mail" autofocus placeholder="Adresse mail">
-		<input type="password" name="pwd" id="pwd" placeholder="Mot de passe">
-		<input type="button" value="Se connecter" id="btn">
-		
-		<style scoped="scoped">
+	<style scoped>
 			body{
 				font: 16px 'Comfortaa', sans-serif;
 				margin: 0 auto;
@@ -46,7 +38,7 @@
 				font-size: 3vw;
 				font-weight: lighter;
 			}
-			input[type="button"]{
+			input[type="Submit"]{
 				background: rgba(63, 164, 0, 0.9);
 				width: 60%;
 				border: none;
@@ -55,7 +47,7 @@
 			
 			
 			}
-			input[type="button"]:hover{
+			input[type="Submit"]:hover{
 				background: rgba(36, 115, 62, 0.9);
 			}
 			input{
@@ -85,5 +77,17 @@
 			}
 
 		</style>
+		
+		<form action="connexion.php" method="post">
+		<h2>Veuillez vous identifiez</h2>
+	
+	<div class="container">
+	<h1>Se connecter</h1>
+	<img src="images/avatar.jpg">
+	<input type="text" name="email"  autofocus placeholder="Adresse mail">
+		<input type="password" name="pwd"  placeholder="Mot de passe">
+		<input type="submit" value="Se connecter" >
+	</div>	
+		
 </body>
 </html>

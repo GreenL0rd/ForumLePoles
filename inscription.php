@@ -1,22 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+
+$dsn = 'mysql:host=localhost;dbname=ForumLePoles';
+$user = 'root';
+$pass = '';
+
+$pdo = new PDO(
+	$dsn,
+	$user,
+	$pass
+);
+
+if ( $_POST['pwdA'] !== $_POST['pwdB'] ) {
+	echo "Mot de passe invalide";
+	//header('Location: error-password.html');
+	die();
+}
+
+$request = $pdo->query(
+	'SELECT * FROM users WHERE email="' . $_POST['email'] . '";'
+);
+$result = $request->fetchAll();
+
+if ( count($result) > 0 ) {
+	echo "E-mail invalide";
+	//header('Location: error-email.html');
+	die();
+} else {
+	$requestB = $pdo->query('INSERT INTO users ( email, pwd ) VALUES ("' . $_POST['email'] . '", "' . $_POST['pwdA'] . '");');
+}
+echo "OK";
+//header('Location: connection.html');
+
+?>
 <head>
 	<meta charset="UTF-8">
 	<link href='http://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
 	<title>Document</title>
 </head>
 <body>
-	<style scoped>
+<h2>Bienvenue sur la page d'inscription</h2>
+	<form class="container">
+
+	<h1>Inscription</h1>
+	<input type="text" name="mail" id="mail" autofocus placeholder="Adresse mail">
+		<input type="name" name="pseudo" placeholder="pseudonyme">
+		<input type="password" name="pwd" id="pwd" placeholder="Mot de passe">
+		<input type="password" name="confirm" id="confirm" placeholder="Retapez mot de passe">
+		<input type="button" value="Envoyer" id="btn">
+		
+		<style scoped="scoped">
 			body{
 				font: 16px 'Comfortaa', sans-serif;
 				margin: 0 auto;
 				background: url(images/Light_Bird_Abstract_Design.jpg) no-repeat center center fixed;
 				background-size: cover;
+
+				
 			}
 			.container{
 				margin: 150px auto;
 				display: block;
-				width: 600px;
+				width: 400px;
 				
 				background: rgba(0,0,0,0.5);
 				border: solid 1px #000;
@@ -24,13 +68,6 @@
 				
 
 
-			}
-			img{
-				border-radius:0 0 10px 10px;
-				width: 100%;
-				display: block;
-				margin: 0 auto;
-				
 			}
 			h2{
 				text-align: center;
@@ -77,12 +114,6 @@
 			}
 
 		</style>
-	<h2>Bonne visite!!</h2>
-	<form class="container">
-	<h1>Bienvenue</h1>
-	<img src="images/obama-ok.jpg">
-	
-		
-		
+
 </body>
 </html>

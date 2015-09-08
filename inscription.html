@@ -6,17 +6,7 @@
 	<title>Document</title>
 </head>
 <body>
-	<h2>Bienvenue sur la page d'inscription</h2>
-	<form class="container">
-
-	<h1>Inscription</h1>
-	<input type="text" name="mail" id="mail" autofocus placeholder="Adresse mail">
-		<input type="name" name="pseudo" placeholder="pseudonyme">
-		<input type="password" name="pwd" id="pwd" placeholder="Mot de passe">
-		<input type="password" name="confirm" id="confirm" placeholder="Retapez mot de passe">
-		<input type="button" value="Envoyer" id="btn">
-		
-		<style scoped="scoped">
+	<style scoped>
 			body{
 				font: 16px 'Comfortaa', sans-serif;
 				margin: 0 auto;
@@ -43,7 +33,7 @@
 				font-size: 3vw;
 				font-weight: lighter;
 			}
-			input[type="button"]{
+			input[type="submit"]{
 				background: rgba(63, 164, 0, 0.9);
 				width: 60%;
 				border: none;
@@ -52,7 +42,7 @@
 			
 			
 			}
-			input[type="button"]:hover{
+			input[type="submit"]:hover{
 				background: rgba(36, 115, 62, 0.9);
 			}
 			input{
@@ -82,5 +72,20 @@
 			}
 
 		</style>
+	
+	<form action="inscription.php" method="post">
+	
+		<h2>Bienvenue sur la page d'inscription</h2>
+		<div class="container">
+
+		<h1>Inscription</h1>
+		<input type="text" name="email" autofocus placeholder="Adresse mail">
+			<input type="name" name="pseudo" placeholder="pseudonyme">
+			<input type="password" name="pwdA" placeholder="Mot de passe">
+			<input type="password" name="pwdB" placeholder="Retapez mot de passe">
+			<input type="submit" value="Envoyer" id="btn">
+		</div>
+		
+	</form>
 </body>
 </html>
