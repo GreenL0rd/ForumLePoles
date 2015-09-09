@@ -1,29 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<link rel="stylesheet" type="text/css" href="css/article.css">
+	<link href='http://fonts.googleapis.com/css?family=Comfortaa:400,700,300' rel='stylesheet' type='text/css'>
 	<meta charset="UTF-8">
-	<link href='http://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
-	<title>Document</title>
+<title>Accueil</title>
 </head>
 <body>
-<?php 
-
-$dsn = 'mysql:host=localhost;dbname=ForumLePoles';
-$user = 'root';
-$pass = '';
-
-$pdo = new PDO(
-	$dsn,
-	$user,
-	$pass
-);
- 
-	$request=$pdo->query('SELECT*FROM post');
-	$result=$request->fetchAll();
-	$ligne=count($result);
-
-?>
-	<style scoped>
+		<style scoped>
 			body{
 				font: 16px 'Comfortaa', sans-serif;
 				margin: 0 auto;
@@ -122,23 +106,61 @@ $pdo = new PDO(
 
 			}
 		</style>
-	
 	<h2>Bienvenue sur notre forum</h2>
 	<a href="forum.html"><input type="button" value="Nouveau Topic"></a>
-	<form class="container">
+
+		<form class="container">
 	<h1>Bonne visite !!</h1>
 	<img src="images/obama-ok.jpg">
 	</form>
-	<div class="container-post">
-	<?php
-		for ($i=0; $i<$ligne; $i++){?>
-			<article>
 
-			</article>
-		}
-	?>
-	</div>
-		
-		
+<div class="container">
+<section> 
+
+<?php  
+
+$dsn = 'mysql:host=localhost;dbname=forumlepoles';
+$user = 'root';
+$pass = '';
+
+$pdo = new PDO(
+$dsn,
+$user,
+$pass
+);
+
+// $id = $_GET['id'];
+
+// $request=$pdo->query('SELECT*FROM texte WHERE id="'.$_GET['id'].'" ');
+// $result=$request->fetchALL();
+// $ligne=count($result);
+
+
+// function idtexte($result){ 
+
+?>
+
+<div class=".container-post">
+
+<h1><?= $result[0]['title']?></h1>
+<p><?= $result[0]['description']?></p>
+
+<div class="bouton">
+
+<a href="delete.php?id=<?=$result[0]['id']?>"><input type="button" value="Supprimer" style="position:inherit;float:left;margin:0 10px"></a>
+<a href="editeur.php?id=<?=$result[0]['id']?>"><input type="button" value="Modifier" style="position:inherit;float:left;margin:0 10px"></a>
+
+
+</div>
+</div>
+
+
+
+<?php 
+echo idTexte($result);
+?>
+
+</section>
+</div>
 </body>
 </html>

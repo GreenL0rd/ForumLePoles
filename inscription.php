@@ -10,7 +10,7 @@ $pdo = new PDO(
 	$pass
 );
 
-if ( $_POST['pwdA'] !== $_POST['pwdB'] ) {
+if ( $_POST['passwordA'] !== $_POST['passwordB'] ) {
 	echo "Mot de passe invalide";
 	//header('Location: error-password.html');
 	die();
@@ -26,10 +26,9 @@ if ( count($result) > 0 ) {
 	//header('Location: error-email.html');
 	die();
 } else {
-	$requestB = $pdo->query('INSERT INTO users ( email, pwd ) VALUES ("' . $_POST['email'] . '", "' . $_POST['pwdA'] . '");');
+	$requestB = $pdo->query('INSERT INTO users ( email, password ) VALUES ("' . $_POST['email'] . '", "' . $_POST['passwordA'] . '");');
 }
-echo "OK";
-//header('Location: connection.html');
+	header('Location: compte.html');
 
 ?>
 <head>

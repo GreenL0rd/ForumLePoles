@@ -14,7 +14,7 @@
 				background-size: cover;
 			}
 			.container{
-				margin: 150px auto;
+				margin: 0 auto;
 				display: block;
 				width: 400px;
 				
@@ -38,17 +38,33 @@
 				font-size: 3vw;
 				font-weight: lighter;
 			}
-			input[type="Submit"]{
+			.container>input[type="Submit"]{
 				background: rgba(63, 164, 0, 0.9);
 				width: 60%;
 				border: none;
 				border-radius: 10px;
 				margin-bottom: 20px;
+
 			
 			
 			}
-			input[type="Submit"]:hover{
+			input[type="button"]{
+				background: rgba(0,0,0,0.3);
+				border: solid 1px #fff;
+				width: 240px;
+				line-height: 30px;
+				border-radius: 10px;
+				margin-bottom: 20px;
+				font-weight: bolder;
+				font-size: 1vw;
+			
+			
+			}
+			.container>input[type="Submit"]:hover{
 				background: rgba(36, 115, 62, 0.9);
+			}
+			input[type="Submit"]:hover{
+				background: black;
 			}
 			input{
 				width: 80%;
@@ -87,7 +103,8 @@
 	<input type="text" name="email"  autofocus placeholder="Adresse mail">
 		<input type="password" name="pwd"  placeholder="Mot de passe">
 		<input type="submit" value="Se connecter" >
-	</div>	
-		
+	</div>
+	<a href="inscription.html"><input type="button" value="S'inscrire"></a>
+	
 </body>
 </html>

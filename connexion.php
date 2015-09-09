@@ -13,17 +13,15 @@ $pdo = new PDO(
 );
 
 $request = $pdo->query(
-	'SELECT * FROM users WHERE email="' . $_POST['email'] . '" AND pwd = "' . $_POST['pwd']. '";'
+	'SELECT * FROM users WHERE email="' . $_POST['email'] . '" AND password = "' . $_POST['password']. '";'
 );
 
 $result = $request->fetchAll();
 
 if ( count($result) > 0 ) {
 	$_SESSION['users'] = $result[0];
-	echo "Couscous party!";
-	// header('');
+	header('connexion.html');
 
 } else {
-	echo "Vas te laver les mains avant de manger le couscous!";
-	// header('');
+	header('visite.html');
 }
