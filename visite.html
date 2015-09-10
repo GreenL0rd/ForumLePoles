@@ -6,23 +6,7 @@
 	<title>Document</title>
 </head>
 <body>
-<?php 
 
-$dsn = 'mysql:host=localhost;dbname=ForumLePoles';
-$user = 'root';
-$pass = '';
-
-$pdo = new PDO(
-	$dsn,
-	$user,
-	$pass
-);
- 
-	$request=$pdo->query('SELECT*FROM post');
-	$result=$request->fetchAll();
-	$ligne=count($result);
-
-?>
 	<style scoped>
 			body{
 				font: 16px 'Comfortaa', sans-serif;
