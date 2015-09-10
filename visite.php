@@ -129,18 +129,11 @@ $user,
 $pass
 );
 
-// $id = $_GET['id'];
 
-// $request=$pdo->query('SELECT*FROM texte WHERE id="'.$_GET['id'].'" ');
-// $result=$request->fetchALL();
-// $ligne=count($result);
-
-
-// function idtexte($result){ 
 
 ?>
 
-<div class=".container-post">
+<div class="container-post">
 
 <h1><?= $result[0]['title']?></h1>
 <p><?= $result[0]['description']?></p>
@@ -148,8 +141,6 @@ $pass
 <div class="bouton">
 
 <a href="delete.php?id=<?=$result[0]['id']?>"><input type="button" value="Supprimer" style="position:inherit;float:left;margin:0 10px"></a>
-<a href="editeur.php?id=<?=$result[0]['id']?>"><input type="button" value="Modifier" style="position:inherit;float:left;margin:0 10px"></a>
-
 
 </div>
 </div>

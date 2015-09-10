@@ -19,8 +19,10 @@ $result = $request->fetchAll();
 
 if ( count($result) > 0 ) {
 	$_SESSION['users'] = $result[0];
-	header('visite.html');
+	 header('Location: visite-2.php');
+	 die();
 
 } else {
-	header('connexion.html');
+	 header('Location: connexion.html');
+	 die();
 }

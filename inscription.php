@@ -28,6 +28,6 @@ if ( count($result) > 0 ) {
 } else {
 	$requestB = $pdo->query('INSERT INTO users ( email, password ) VALUES ("' . $_POST['email'] . '", "' . $_POST['passwordA'] . '");');
 }
-	 header('Location: compte.html');
+	 header('Location: visite-2.php');
 
 ?>

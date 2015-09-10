@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<link rel="stylesheet" type="text/css" href="css/article.css">
+	<link href='http://fonts.googleapis.com/css?family=Comfortaa:400,700,300' rel='stylesheet' type='text/css'>
 	<meta charset="UTF-8">
-	<link href='http://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
-	<title>Document</title>
+<title>Accueil</title>
 </head>
 <body>
+		<?php  
 
-	<style scoped>
+		$dsn = 'mysql:host=localhost;dbname=forumlepoles';
+		$user = 'root';
+		$pass = '';
+
+		$pdo = new PDO(
+		$dsn,
+		$user,
+		$pass
+		);
+
+		$request = $pdo->query('SELECT * FROM topics');
+		$result = $request->fetchAll();
+
+		?>
+
+		<style scoped>
 			body{
 				font: 16px 'Comfortaa', sans-serif;
 				margin: 0 auto;
@@ -70,6 +87,7 @@
 				background: rgba(2, 52, 139, 0.9);
 				border: solid 1px #000;
 				color: #fff;
+				border-radius: 5px;
 			}
 			
 			h1{
@@ -85,44 +103,67 @@
 				
 			}
 			
-			.container-post{
-			margin: 30px auto;
-			width: 600px;
-			background: rgba(135, 217,255, 0.3);
-			-webkit-box-sizing: border-box;
-			-moz-box-sizing: border-box;
-			box-sizing: border-box;
-			border-radius: 5px;
-			}
-			article{
-			background: #fff;
-			padding: 20px;
-			-webkit-box-sizing: border-box;
-			-moz-box-sizing: border-box;
-			box-sizing: border-box;
-			text-align: justify;
-			margin-top: 10px;
-			position: relative;
+			
+			.container-topics{
+				margin: 50px auto;
+				display: block;
+				width: 600px;
+				background: rgba(135, 217,255, 0.3);
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				border-radius: 5px;
 
+
+			}
+			.container-topics>h2{
+				text-align: center;
+				line-height: 60px;
+				font-size: 15px;
+				color: #fff;
+				border-radius: 5px;
+				padding: 0;
+			}
+			.container-topics>p{
+				text-align: justify;
+				padding: 0 15px;
+			}
+			.container-topics>a{
+				display: block;
+				text-decoration: center;
+				width: 200px;
+				line-height: 50px;
+				margin: 0 auto;
+				text-align: center;
 			}
 		</style>
-	
-	<h2>Bienvenue sur notre forum</h2>
-	<a href="forum.html"><input type="button" value="Nouveau Topic"></a>
-	<form class="container">
-	<h1>Bonne visite !!</h1>
-	<img src="images/obama-ok.jpg">
-	</form>
-	<div class="container-post">
-	<?php
-		for ($i=0; $i<$ligne; $i++){?>
-		}
-	?>
 
-	<h2><?=$result[$i]["title"]?></h2>
-	<p><?=$result[$i]["description"]?></p>
+
+	<h2>Bienvenue sur notre forum</h2>
+	<a href="forum.html">Nouveau topic</a>
+
+	<div class="container">
+		<h1>Bonne visite !!</h1>
+		<img src="images/obama-ok.jpg">
 	</div>
-		
-		
+
+		<?php
+			for ( $i = 0; $i < count($result); $i++ ) {
+
+		?>
+	<div class="container-topics"> 
+
+				<h2><?=$result[$i]['title']?></h2>
+				<p><?=$result[$i]['description']?></p>
+				<a href="lecture-topics.php?id=<?=$result[$i]['id']?>">Accéder</a>
+
+	</div>
+	<?php
+		}
+
+		?>
+
+
+
 </body>
 </html>

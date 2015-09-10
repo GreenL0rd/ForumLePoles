@@ -6,9 +6,7 @@
 	<title>Document</title>
 </head>
 <body>
-	
-		
-		<style scoped="scoped">
+		<style scoped>
 			body{
 				font: 16px 'Comfortaa', sans-serif;
 				margin: 0 auto;
@@ -82,12 +80,15 @@
 			}
 
 		</style>
+		
 		<h2>Tapez votre message</h2>
-			<form class="container">
-			<h1>Post</h1>
-				<input type="titre" name="titre" id="titre" placeholder="titre">
-				<textarea></textarea>
+			<form action="topics.php" method="post">
+			<div class="container">
+			<h1>Topic</h1>
+				<input type="text" name="title" placeholder="titre">
+				<textarea name="description" placeholder="Entrez votre texte"></textarea>
 				<input type="submit" value="Envoyer" id="btn">
+			</div>
 			</form>
 </body>
 </html>
