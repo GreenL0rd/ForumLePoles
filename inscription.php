@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $dsn = 'mysql:host=localhost;dbname=forumlepoles';
 $user = 'root';
 $pass = '';
@@ -9,6 +9,8 @@ $pdo = new PDO(
 	$user,
 	$pass
 );
+
+
 
 if ( $_POST['passwordA'] !== $_POST['passwordB'] ) {
 	echo "Mot de passe invalide";

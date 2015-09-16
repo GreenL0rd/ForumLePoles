@@ -9,6 +9,8 @@
 <body>
 		<?php  
 
+		session_start();
+		
 		$dsn = 'mysql:host=localhost;dbname=forumlepoles';
 		$user = 'root';
 		$pass = '';
@@ -18,6 +20,8 @@
 		$user,
 		$pass
 		);
+		
+
 
 		$request = $pdo->query('SELECT * FROM topics');
 		$result = $request->fetchAll();
